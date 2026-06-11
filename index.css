@@ -1,9 +1,11 @@
-html{
+html {
     scroll-behavior: smooth;
 }
 
-body{
+body {
     padding-top: 70px;
+    font-family: montserrat, sans-serif;
+    font-weight: 400;
 }
 
 #quienes-somos,
@@ -14,7 +16,180 @@ body{
     scroll-margin-top: 80px;
 }
 
-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+.navbar-azul {
+    background-color: #2c3b77;
+}
+
+.banner {
+    background-image: url("/img/chicos\ fondo\ rojo.png");
+    background-size: cover;
+    background-position: center;
+
+    height: 30vh;
+    color: white;
+    display: flex;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.btn-talleres {
+    background-color: #e01505;
+    border-color: #e01505;
+    color: white;
+
+    border-radius: 30px; /* redondeado */
+    padding: 12px 28px;
+
+    font-weight: 600;
+}
+
+.btn-talleres:hover {
+    background-color: #c51204;
+    border-color: #c51204;
+    color: white;
+}
+
+.img-circulo {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
+
+.titulo-quienes-somos {
+    font-weight: 800;
+    color: #2c3b77;
+}
+
+.card-valores {
+    border-radius: 20px;
+    border-top: 5px solid #e01505;
+    padding: 20px;
+}
+
+.card-title-valores {
+    text-align: center;
+    color: #e01505;
+    font-weight: 600;
+}
+
+.titulo-staff {
+    font-weight: 800;
+    color: #2c3b77;
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.staff-info {
+    background-color: #f8f9fa;
+    padding-bottom: 2rem;
+    border-radius: 20px;
+}
+
+.profesores-section {
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 20px;
+
+    background-color:#f8f9fa ;
+    color: #2c3b77;
+}
+
+.profesores-section h3 {
+    font-weight: 700;
+    color: #2c3b77;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titulo-talleres {
+    font-weight: 800;
+    color: #2c3b77;
+    border-radius: 50px;
+    text-align: center;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    
+}
+
+.talleres-bg {
+    background-image: url("img\\fondocolores.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.taller-card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 20px;
+    height: 100%;
+    gap: 10px;
+    font-weight: 400;
+}
+.taller-card h3 {
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.titulo-horarios {
+    color: #2c3b77;
+    font-weight: 800;
+}
+
+.table {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #949191;
+}
+
+.table thead th {
+    background-color: #e01505;
+    color: white;
+    text-align: center;
+}
+
+.table tbody td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.formulario-section {
+    background-color: #2c3b77;
+    border-radius: 20px;
+    margin-top: 100px;
+    color: white;
+}
+
+.formulario-section h2 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.btn-enviar {
+    background-color: #e01505;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 600;
+}
+
+.btn-enviar:hover {
+    background-color: #b81204;
+    color: white;
 }
