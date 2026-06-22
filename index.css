@@ -221,3 +221,35 @@ h1 {
     color: #e01505; /* rojo al pasar el mouse */
     transform: scale(1.8);
 }
+
+/* ===== CELULARES ===== */
+@media (max-width: 768px) {
+
+
+    body {
+        margin: 10px;
+        
+    }
+    
+    .banner {
+        height: 45vh;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .banner p {
+        font-size: 1rem;
+    }
+
+    .btn-talleres {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+
+}
