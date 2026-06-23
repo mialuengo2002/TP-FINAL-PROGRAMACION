@@ -42,7 +42,7 @@ h1 {
     border-color: #e01505;
     color: white;
 
-    border-radius: 30px; /* redondeado */
+    border-radius: 30px; 
     padding: 12px 28px;
 
     font-weight: 600;
@@ -194,6 +194,21 @@ h1 {
     color: white;
 }
 
+.iniciar-sesion-btn {
+    background-color: #e01505;
+    border-color: #e01505;
+    color: white;
+    border-radius: 30px;
+    padding: 6px 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.iniciar-sesion-btn:hover {
+    background-color: #c51204;
+    color: white;
+}
+
 .footer-atr {
     background-color: #e01505;
     color: white;
@@ -218,7 +233,7 @@ h1 {
 }
 
 .red-social:hover {
-    color: #e01505; /* rojo al pasar el mouse */
+    color: #e01505;
     transform: scale(1.8);
 }
 
