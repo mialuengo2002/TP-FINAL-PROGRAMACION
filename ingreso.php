@@ -22,11 +22,11 @@
     <nav class="navbar fixed-top navbar-expand-lg navbar-azul">
         <div class="container">
 
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index.php">
                 <img src="img/Mesa de trabajo 5.png" alt="Logo A Todo Ritmo" height="50">
             </a>
 
-            <a href="index.html" class="btn btn-volver">
+            <a href="index.php" class="btn btn-volver">
                 Volver al inicio
             </a>
 
