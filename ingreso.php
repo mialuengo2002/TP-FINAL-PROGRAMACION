@@ -44,34 +44,27 @@
                 Ingresá con tu usuario y contraseña.
             </p>
 
-            <form>
+            <form action="log.php" method="POST">
 
-                <div class="mb-3">
-                    <label for="usuario" class="form-label">Usuario</label>
-                    <input type="text"
-                           class="form-control"
-                           id="usuario"
-                           placeholder="Ingrese su usuario"
-                           required>
-                </div>
+                <input type="email"
+                 name="email"
+                 placeholder="Correo"
+                 required>
 
-                <div class="mb-4">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password"
-                           class="form-control"
-                           id="password"
-                           placeholder="Ingrese su contraseña"
-                           required>
-                </div>
+                <input type="password"
+                name="password"
+                placeholder="Contraseña"
+                required>
 
-                <button type="submit" class="btn btn-login">
-                    Iniciar sesión
-                </button>
+                <button type="submit">Ingresar</button>
 
             </form>
-
         </div>
 
+        <p class="text-center mt-3">
+    ¿No tenés una cuenta?
+    <a href="register.php">Registrate</a>
+</p>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

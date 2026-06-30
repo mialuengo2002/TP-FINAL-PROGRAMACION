@@ -39,11 +39,14 @@
                     <img src="img/Mesa de trabajo 5.png" alt="Logo A Todo Ritmo" height="50" class="me-2">
                 </a>
                 <div class="d-flex ms-auto align-items-center">
-                    <a href="ingreso.html" class="btn btn-danger ms-2 iniciar-sesion-btn">Iniciar sesión</a>
+                    <a href="ingreso.php" class="btn btn-danger ms-2 iniciar-sesion-btn">Iniciar sesión</a>
                     <button class="navbar-toggler ms-2" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+                </div>
+                <div class="d-flex ms-auto align-items-center">
+                    <a href="register.php" class="btn btn-danger ms-2 iniciar-sesion-btn">Registrarse</a>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
