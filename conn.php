@@ -4,7 +4,7 @@ $dbuser = 'root';
 $dbpass = '';
 $dbname = 'prog3-1'; //Modificar con el nombre de la base de datos
 
-$conn = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
+$conn = new <atr class="sql"></atr>($dbserver, $dbuser, $dbpass, $dbname);
 
 if(!$conn){
     echo "Houston tenemos un problema";
