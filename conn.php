@@ -1,15 +1,12 @@
-<?php 
-$dbserver = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$dbname = 'prog3-1'; //Modificar con el nombre de la base de datos
+<?php
+$dbserver = "localhost";
+$dbuser = "root";
+$dbpass = "";
+$dbname = "atr";
 
 $conn = new mysqli($dbserver, $dbuser, $dbpass, $dbname);
 
-if(!$conn){
-    echo "Houston tenemos un problema";
-}
-
 if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
+    die("Error de conexión: " . $conn->connect_error);
 }
+?>
