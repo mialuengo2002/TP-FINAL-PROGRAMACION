@@ -1,4 +1,4 @@
-<!--<?php
+?php
 session_start();
 include 'conn.php';
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 $conn->close();
 ?>
--->
+
 <!DOCTYPE html>
 <html lang="es">
 
