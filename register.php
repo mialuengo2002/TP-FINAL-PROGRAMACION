@@ -1,31 +1,36 @@
 <?php
+session_start();
 include 'conn.php';
+
+$registro_error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])) {
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         try {
             $sql = "INSERT INTO usuarios (username, email, password) VALUES (?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sss", $username, $email, $password);
             if ($stmt->execute()) {
-                echo "Usuario registrado exitosamente.";
+                $_SESSION['id_usuario'] = $stmt->insert_id;
+                $_SESSION['username'] = $username;
+                $_SESSION['email'] = $email;
+                $stmt->close();
                 $conn->close();
                 header("Location: home.php");
+                exit;
             } else {
-                echo "Error: " . $stmt->error;
+                $registro_error = "Error: " . $stmt->error;
             }
+            $stmt->close();
         } catch (mysqli_sql_exception $e) {
-            echo "<p style='font-size: 1.5rem;'>Ocurrió un error al registrar el usuario: $email. Por favor, intenta de nuevo más tarde.</p>";
-            echo "<script>console.error('Error en el guardado: " . $e->getMessage() . "');</script>";
+            $registro_error = "Ocurrió un error al registrar el usuario: $email. Es posible que el correo ya esté registrado.";
         }
     } else {
-        echo "Error: Falta completar un campo";
+        $registro_error = "Error: Falta completar un campo";
     }
-
-    $stmt->close();
 }
 $conn->close();
 ?>
@@ -36,13 +41,16 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro usando BBDD</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Registro - A Todo Ritmo</title>
+    <link rel="stylesheet" href="register.css">
 </head>
 
 <body>
     <main>
         <form action="" method="post">
+            <?php if ($registro_error): ?>
+                <p style="color: red;"><?php echo htmlspecialchars($registro_error); ?></p>
+            <?php endif; ?>
             <label for="username">Usuario:</label>
             <input type="text" id="username" name="username" required><br>
             <label for="password">Contraseña:</label>
