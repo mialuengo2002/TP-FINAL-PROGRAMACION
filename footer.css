@@ -1,0 +1,28 @@
+
+.footer-atr {
+    background-color: #e01505;
+    color: white;
+    margin-top: 80px;
+}
+
+.footer-atr h2 {
+    color: #ffffff;
+    font-weight: 690;
+}
+
+.footer-atr hr {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.red-social {
+    color: #1d3557; 
+    font-size: 3rem; 
+    margin: 0 20px; 
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.red-social:hover {
+    color: #e01505;
+    transform: scale(1.8);
+}
