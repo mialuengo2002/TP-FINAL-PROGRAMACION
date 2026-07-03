@@ -11,23 +11,42 @@ if (!isset($_SESSION['id_usuario'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="home.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="home.css">
 </head>
 <body>
+
+
     <header>
-        <h1>Artista</h1>
+         <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-azul">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.php">
+                <img src="img/Mesa de trabajo 5.png" alt="Logo A Todo Ritmo" height="50">
+            </a>
+
+            <a href="index.php" class="btn btn-volver">
+                Volver al inicio
+            </a>
+
+        </div>
+    </nav>
     </header>
     <main>
         <section>
-            <p>Sesión iniciada como: <?php echo htmlspecialchars($_SESSION['username']); ?> (<?php echo htmlspecialchars($_SESSION['email']); ?>) — <a href="logout.php">Cerrar sesión</a></p>
-            <h2>Bienvenido a la pagina del artista</h2>
-            <iframe src="https://open.spotify.com/embed/track/3nCFiwtuVqVJmnSasApvr3?utm_source=generator&theme=0" width="100%" height="152" style="border-radius:12px" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem quae ducimus cum voluptatibus accusantium distinctio porro quod quas, voluptatum similique ratione? Distinctio illum, maiores voluptatum recusandae aspernatur provident non voluptas! Dolorem fugiat vel sequi, doloribus nesciunt natus assumenda id. Accusantium cumque enim a, laudantium laboriosam debitis labore placeat omnis qui!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore enim laborum animi, similique placeat suscipit ex facere. Quo illo veritatis quibusdam. Ex accusantium laborum cupiditate eaque libero modi? Consequatur, nulla.</p>
+            <p>Sesión iniciada como: <?php echo htmlspecialchars($_SESSION['username']); ?> (<?php echo htmlspecialchars($_SESSION['email']); ?>) — <a href="logout.php" class="cerrarsesion">Cerrar sesión</a></p>
+            <h2>Bienvenid@ Artista!</h2>
+            
+            <p>Aqui podras encontrar tus talleres.</p>
         </section>
     </main>
     <?php
         include 'footer.php';
     ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

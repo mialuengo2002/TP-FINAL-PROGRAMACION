@@ -55,7 +55,7 @@
                 name="password"
                 placeholder="Contraseña"
                 required>
-
+                
                 <button type="submit">Ingresar</button>
 
                 <p class="text-center mt-3">

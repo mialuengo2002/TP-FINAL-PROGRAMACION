@@ -1,0 +1,84 @@
+body{
+    padding-top: 70px;
+    font-family: Montserrat, sans-serif;
+    background-image: url("img/fondocolores.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar-azul{
+    background-color: #2c3b77;
+}
+
+/* Contenedor */
+.login-section{
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-family: Montserrat, sans-serif;
+}
+
+.login-card{
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255,255,255,.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.25);
+}
+/* Título */
+.login-card h2{
+    color: #2c3b77;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Botón */
+.btn-login{
+    background-color: #e01505;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 12px;
+    width: 100%;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-login:hover{
+    background-color: #b81204;
+    color: white;
+}
+
+/* Botón volver */
+.btn-volver{
+    background-color: white;
+    color: #2c3b77;
+    border: 2px solid white;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-volver:hover{
+    background-color: #e01505;
+    border-color: #e01505;
+    color: white;
+}
+
+/* Link volver */
+.volver{
+    color: #2c3b77;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.volver:hover{
+    color: #e01505;
+}

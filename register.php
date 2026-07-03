@@ -1,4 +1,4 @@
-<?php
+<!--<?php
 session_start();
 include 'conn.php';
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 $conn->close();
 ?>
-
+-->
 <!DOCTYPE html>
 <html lang="es">
 
@@ -42,25 +42,72 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro - A Todo Ritmo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="register.css">
 </head>
 
 <body>
-    <main>
-        <form action="" method="post">
-            <?php if ($registro_error): ?>
-                <p style="color: red;"><?php echo htmlspecialchars($registro_error); ?></p>
-            <?php endif; ?>
-            <label for="username">Usuario:</label>
-            <input type="text" id="username" name="username" required><br>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br>
-            <button type="submit">Registrarse</button>
-            <a href="index.php">Ya tiene un usuario?</a>
-        </form>
-    </main>
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-azul">
+        <div class="container">
+
+            <a class="navbar-brand" href="index.php">
+                <img src="img/Mesa de trabajo 5.png" alt="Logo A Todo Ritmo" height="50">
+            </a>
+
+            <a href="index.php" class="btn btn-volver">
+                Volver al inicio
+            </a>
+
+        </div>
+    </nav>
+
+    <section class="login-section">
+
+        <div class="login-card">
+
+            <h2>Registrarse</h2>
+
+            <form action="" method="post">
+
+                <?php if ($registro_error): ?>
+                <div class="alert alert-danger">
+                    <?php echo htmlspecialchars($registro_error); ?>
+                </div>
+                <?php endif; ?>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Usuario</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="btn btn-login">
+                    Registrarse
+                </button>
+
+                <div class="text-center mt-4">
+                    <a href="ingreso.php" class="volver">
+                        ¿Ya tenés un usuario? Iniciá sesión
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
 </body>
 
 </html>
