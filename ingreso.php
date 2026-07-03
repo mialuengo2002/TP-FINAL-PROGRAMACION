@@ -36,7 +36,7 @@
     <!-- Login -->
     <section class="login-section">
 
-        <div class="login-card">
+        <div class="login-card input">
 
             <h2>Ingreso</h2>
 
