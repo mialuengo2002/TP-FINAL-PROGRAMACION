@@ -41,22 +41,20 @@
 
                 <div class="d-flex align-items-center ms-auto">
 
-    <a href="ingreso.php" class="btn iniciar-sesion-btn me-2">
-        Iniciar sesión
-    </a>
+                    <a href="ingreso.php" class="btn iniciar-sesion-btn me-2">
+                        Iniciar sesión
+                    </a>
 
-    <a href="register.php" class="btn iniciar-sesion-btn me-2">
-        Registrarse
-    </a>
+                    <a href="register.php" class="btn iniciar-sesion-btn me-2">
+                        Registrarse
+                    </a>
 
-    <button class="navbar-toggler" type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-</div>
+                </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">

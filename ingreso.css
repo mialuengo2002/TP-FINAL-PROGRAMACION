@@ -89,3 +89,12 @@ body{
 .volver:hover{
     color: #e01505;
 }
+
+.login-card input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    box-sizing: border-box;
+}

@@ -56,7 +56,9 @@
                 placeholder="Contraseña"
                 required>
                 
-                <button type="submit">Ingresar</button>
+                <button type="submit" class="btn btn-login mt-3">
+    Ingresar
+</button>
 
                 <p class="text-center mt-3">
                     ¿No tenés una cuenta?
