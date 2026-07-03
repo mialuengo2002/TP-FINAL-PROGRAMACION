@@ -58,13 +58,13 @@
 
                 <button type="submit">Ingresar</button>
 
+                <p class="text-center mt-3">
+                    ¿No tenés una cuenta?
+                    <a href="register.php">Registrate</a>
+                </p>
             </form>
         </div>
-
-        <p class="text-center mt-3">
-    ¿No tenés una cuenta?
-    <a href="register.php">Registrate</a>
-</p>
+        
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>

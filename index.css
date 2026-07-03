@@ -21,7 +21,7 @@ body {
 }
 
 .banner {
-    background-image: url("/img/chicos\ fondo\ rojo.png");
+    background-image: url("img\\chicosfondorojo.png");
     background-size: cover;
     background-position: center;
 
