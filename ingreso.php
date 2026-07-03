@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="ingreso.css">
+    <link rel="stylesheet" href="ingreso.css?v=2">
 </head>
 
 <body>
@@ -36,7 +36,7 @@
     <!-- Login -->
     <section class="login-section">
 
-        <div class="login-card input">
+        <div class="login-card">
 
             <h2>Ingreso</h2>
 
@@ -46,19 +46,13 @@
 
             <form action="log.php" method="POST">
 
-                <input type="email"
-                 name="email"
-                 placeholder="Correo"
-                 required>
+                <input type="email" name="email" placeholder="Correo" required>
 
-                <input type="password"
-                name="password"
-                placeholder="Contraseña"
-                required>
-                
+                <input type="password" name="password" placeholder="Contraseña" required>
+
                 <button type="submit" class="btn btn-login mt-3">
-    Ingresar
-</button>
+                    Ingresar
+                </button>
 
                 <p class="text-center mt-3">
                     ¿No tenés una cuenta?
@@ -66,7 +60,7 @@
                 </p>
             </form>
         </div>
-        
+
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
