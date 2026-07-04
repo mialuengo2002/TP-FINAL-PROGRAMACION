@@ -112,7 +112,7 @@
                 </div>
 
                 <div class="col-md-4 text-center">
-                    <img src="/img/NENA BATERIA.jpg" alt="Escuela de Música" class="img-circulo">
+                    <img src="img/NENA BATERIA.jpg" alt="Escuela de Música" class="img-circulo">
                 </div>
 
             </div>
