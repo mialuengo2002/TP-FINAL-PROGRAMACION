@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['taller'])) {
     $idTaller = (int) $_POST['taller'];
     $idUsuario = (int) $_SESSION['id_usuario'];
 
-    // ❗ OPCIONAL PERO RECOMENDADO: evitar duplicados antes de insertar
+    
     $check = "SELECT 1 FROM inscripcion WHERE idAlumno = ? AND idTaller = ?";
     $stmtCheck = $conn->prepare($check);
     $stmtCheck->bind_param("ii", $idUsuario, $idTaller);
