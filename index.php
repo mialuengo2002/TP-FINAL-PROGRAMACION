@@ -388,19 +388,19 @@ $sql = "SELECT t.nombre_taller, t.horario
                     <h2 class="text-center mb-4">Formulario de Inscripción</h2>
 
                     <?php if (!empty($misTalleres)): ?>
-                        <div class="alert alert-info text-center">
-                            Ya estás inscripto en:
-                            <strong>
-                                <?php echo htmlspecialchars(implode(', ', array_column($misTalleres, 'nombre_taller'))); ?>
-                            </strong>
-                        </div>
+                    <div class="alert alert-info text-center">
+                        Ya estás inscripto en:
+                        <strong>
+                            <?php echo htmlspecialchars(implode(', ', array_column($misTalleres, 'nombre_taller'))); ?>
+                        </strong>
+                    </div>
                     <?php endif; ?>
 
-                    <div class="boton-login">
-    <a href="ingreso.php" class="btn btn-login">
-        Iniciar sesión para inscribirte
-    </a>
-</div>
+                    <div class="d-flex justify-content-center">
+                        <a href="ingreso.php" class="btn btn-login">
+                            Iniciar sesión para inscribirte
+                        </a>
+                    </div>
                 </section>
             </div>
     </main>
