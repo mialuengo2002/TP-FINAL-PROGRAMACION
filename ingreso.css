@@ -46,27 +46,7 @@ body{
     margin-bottom: 30px;
 }
 
-.boton-login {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.btn-login {
-    background-color: #dc3545 !important;
-    color: white !important;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.btn-login:hover {
-    background-color: #a71d2a !important;
-    color: white !important;
-    transform: scale(1.05);
-}
 /* Botón volver */
 .btn-volver{
     background-color: white;
