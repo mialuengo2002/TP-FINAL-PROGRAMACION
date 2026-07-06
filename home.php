@@ -12,15 +12,23 @@ $result = $conn->query($sql);
 $talleres = $result->fetch_all(MYSQLI_ASSOC);
 
 $idUsuario = $_SESSION['id_usuario'];
-$sql = "SELECT t.nombre_taller, t.horario, i.fechaInscripcion
+
+// Talleres en los que ya está inscripto
+$sql = "SELECT t.*
         FROM inscripcion i
         JOIN taller t ON t.id_taller = i.idTaller
-        WHERE i.idAlumno = ?
-        ORDER BY i.fechaInscripcion DESC";
+        WHERE i.idAlumno = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $idUsuario);
 $stmt->execute();
 $misTalleres = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+
+// Todos los talleres
+$sql = "SELECT * FROM taller";
+$result = $conn->query($sql);
+$talleres = $result->fetch_all(MYSQLI_ASSOC);
+
 $stmt->close();
 $conn->close();
 ?>
@@ -83,27 +91,11 @@ $conn->close();
 <h3>Talleres disponibles</h3>
 
 <div class="row">
-<?php foreach ($talleres as $taller): ?>
-    <div class="col-md-4 mb-3">
-        <div class="card p-3">
-
-            <h5><?= htmlspecialchars($taller['nombre_taller']) ?></h5>
-
-            <p>
-                Horario:
-                <?= htmlspecialchars(substr($taller['horario'],0,5)) ?>
-            </p>
-
-            <form action="inscribir.php" method="POST">
-                <input type="hidden" name="taller" value="<?= $taller['id_taller'] ?>">
-
-                <button class="btn btn-primary">
-                    Inscribirme
-                </button>
-            </form>
-
-        </div>
-    </div>
+<?php foreach ($misTalleres as $t): ?>
+    <li>
+        <strong><?= htmlspecialchars($t['nombre_taller']) ?></strong>
+        — Horario: <?= htmlspecialchars(substr($t['horario'],0,5)) ?>
+    </li>
 <?php endforeach; ?>
 </div>
 

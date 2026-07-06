@@ -17,7 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['taller'])) {
 $stmt->bind_param("ii", $idUsuario, $idTaller);
 
 if ($stmt->execute()) {
-    echo "Se insertó correctamente.";
+    $stmt->close();
+    $conn->close();
+
+    header("Location: home.php");
+    exit;
 } else {
     echo "Error: " . $stmt->error;
 }
