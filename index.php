@@ -6,18 +6,11 @@ if (isset($_SESSION['id_usuario'])) {
     include 'conn.php';
 
     $idUsuario = $_SESSION['id_usuario'];
-    $sql = "SELECT t.nombre_taller, t.horario
-            FROM inscripcion i
-            JOIN taller t ON t.id_taller = i.idTaller
-            WHERE i.idUsuario = ?
-            ORDER BY i.fechaInscripcion DESC";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $idUsuario);
-    $stmt->execute();
-    $misTalleres = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-    $stmt->close();
-    $conn->close();
-}
+$sql = "SELECT t.nombre_taller, t.horario
+        FROM inscripcion i
+        JOIN taller t ON t.id_taller = i.idTaller
+        WHERE i.idAlumno = ?
+        ORDER BY i.fechaInscripcion DESC";
 ?>
 <!DOCTYPE html>
 <html lang="en">
