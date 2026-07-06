@@ -6,6 +6,10 @@ if (!isset($_SESSION['id_usuario'])) {
 }
 
 include 'conn.php';
+// Obtener todos los talleres
+$sql = "SELECT * FROM taller";
+$result = $conn->query($sql);
+$talleres = $result->fetch_all(MYSQLI_ASSOC);
 
 $idUsuario = $_SESSION['id_usuario'];
 $sql = "SELECT t.nombre_taller, t.horario, i.fechaInscripcion
@@ -74,7 +78,36 @@ $conn->close();
             <?php endif; ?>
         </section>
 
-        
+        <hr>
+
+<h3>Talleres disponibles</h3>
+
+<div class="row">
+<?php foreach ($talleres as $taller): ?>
+    <div class="col-md-4 mb-3">
+        <div class="card p-3">
+
+            <h5><?= htmlspecialchars($taller['nombre_taller']) ?></h5>
+
+            <p>
+                Horario:
+                <?= htmlspecialchars(substr($taller['horario'],0,5)) ?>
+            </p>
+
+            <form action="inscribir.php" method="POST">
+                <input type="hidden" name="taller" value="<?= $taller['id_taller'] ?>">
+
+                <button class="btn btn-primary">
+                    Inscribirme
+                </button>
+            </form>
+
+        </div>
+    </div>
+<?php endforeach; ?>
+</div>
+
+
     </main>
     <?php
         include 'footer.php';
