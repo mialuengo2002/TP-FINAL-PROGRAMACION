@@ -7,33 +7,44 @@ if (!isset($_SESSION['id_usuario'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['taller'])) {
+
     include 'conn.php';
 
     $idTaller = (int) $_POST['taller'];
     $idUsuario = (int) $_SESSION['id_usuario'];
 
+    // ❗ OPCIONAL PERO RECOMENDADO: evitar duplicados antes de insertar
+    $check = "SELECT 1 FROM inscripcion WHERE idAlumno = ? AND idTaller = ?";
+    $stmtCheck = $conn->prepare($check);
+    $stmtCheck->bind_param("ii", $idUsuario, $idTaller);
+    $stmtCheck->execute();
+    $stmtCheck->store_result();
+
+    if ($stmtCheck->num_rows > 0) {
+        $stmtCheck->close();
+        $conn->close();
+
+        header("Location: home.php");
+        exit;
+    }
+
+    $stmtCheck->close();
+
+    // Insertar inscripción
     $sql = "INSERT INTO inscripcion (idAlumno, idTaller) VALUES (?, ?)";
-   $stmt = $conn->prepare($sql);
-$stmt->bind_param("ii", $idUsuario, $idTaller);
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("ii", $idUsuario, $idTaller);
 
-if ($stmt->execute()) {
-    $stmt->close();
-    $conn->close();
+    if ($stmt->execute()) {
+        $stmt->close();
+        $conn->close();
 
-    header("Location: home.php");
-    exit;
-} else {
-    echo "Error: " . $stmt->error;
-}
+        header("Location: home.php");
+        exit;
+    } else {
+        echo "Error al inscribir: " . $stmt->error;
+    }
 
-exit;
-
-
-    $stmt->close();
-    $conn->close();
-
-    header("Location: home.php");
-    exit;
 } else {
     header("Location: index.php");
     exit;
