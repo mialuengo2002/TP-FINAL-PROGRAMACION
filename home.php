@@ -73,6 +73,8 @@ $conn->close();
                 </ul>
             <?php endif; ?>
         </section>
+
+        
     </main>
     <?php
         include 'footer.php';
