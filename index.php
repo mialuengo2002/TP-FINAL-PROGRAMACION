@@ -1,3 +1,24 @@
+<?php
+session_start();
+
+$misTalleres = [];
+if (isset($_SESSION['id_usuario'])) {
+    include 'conn.php';
+
+    $idUsuario = $_SESSION['id_usuario'];
+    $sql = "SELECT t.nombre_taller, t.horario
+            FROM inscripcion i
+            JOIN taller t ON t.id_taller = i.idTaller
+            WHERE i.idUsuario = ?
+            ORDER BY i.fechaInscripcion DESC";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $idUsuario);
+    $stmt->execute();
+    $misTalleres = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    $stmt->close();
+    $conn->close();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -372,7 +393,16 @@
                 <section id="inscribirse" class="container mt-5 pt-5">
                     <h2 class="text-center mb-4">Formulario de Inscripción</h2>
 
-                    <form>
+                    <?php if (!empty($misTalleres)): ?>
+                        <div class="alert alert-info text-center">
+                            Ya estás inscripto en:
+                            <strong>
+                                <?php echo htmlspecialchars(implode(', ', array_column($misTalleres, 'nombre_taller'))); ?>
+                            </strong>
+                        </div>
+                    <?php endif; ?>
+
+                    <form action="inscribir.php" method="POST">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="nombre" class="form-label">Nombre y Apellido</label>
@@ -397,12 +427,12 @@
 
                         <div class="mb-3">
                             <label for="taller" class="form-label">Taller</label>
-                            <select class="form-select" id="taller" required>
-                                <option selected disabled>Seleccioná un taller</option>
-                                <option>Batería</option>
-                                <option>Canto</option>
-                                <option>Guitarra</option>
-                                <option>Piano</option>
+                            <select class="form-select" id="taller" name="taller" required>
+                                <option selected disabled value="">Seleccioná un taller</option>
+                                <option value="2">Batería</option>
+                                <option value="3">Canto</option>
+                                <option value="4">Guitarra</option>
+                                <option value="1">Piano</option>
                             </select>
                         </div>
 
