@@ -237,6 +237,21 @@ h1 {
     transform: scale(1.8);
 }
 
+.btn-login {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #a71d2a;
+    color: white;
+    transform: scale(1.05);
+}
+
 /* ===== CELULARES ===== */
 @media (max-width: 768px) {
 

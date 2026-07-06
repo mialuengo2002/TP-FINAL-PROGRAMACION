@@ -47,22 +47,26 @@ body{
 }
 
 /* Botón */
-.btn-login{
-    background-color: #e01505;
+.boton-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-login {
+    background-color: #dc3545;
     color: white;
     border: none;
-    border-radius: 30px;
-    padding: 12px;
-    width: 100%;
-    font-weight: 600;
-    transition: .3s;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-.btn-login:hover{
-    background-color: #b81204;
+.btn-login:hover {
+    background-color: #a71d2a;
     color: white;
+    transform: scale(1.05);
 }
-
 /* Botón volver */
 .btn-volver{
     background-color: white;
