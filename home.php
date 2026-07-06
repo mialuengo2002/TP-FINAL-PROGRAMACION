@@ -4,6 +4,21 @@ if (!isset($_SESSION['id_usuario'])) {
     header("Location: ingreso.php");
     exit;
 }
+
+include 'conn.php';
+
+$idUsuario = $_SESSION['id_usuario'];
+$sql = "SELECT t.nombre_taller, t.horario, i.fechaInscripcion
+        FROM inscripcion i
+        JOIN taller t ON t.id_taller = i.idTaller
+        WHERE i.idUsuario = ?
+        ORDER BY i.fechaInscripcion DESC";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $idUsuario);
+$stmt->execute();
+$misTalleres = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,8 +56,22 @@ if (!isset($_SESSION['id_usuario'])) {
         <section>
             <p>Sesión iniciada como: <?php echo htmlspecialchars($_SESSION['username']); ?> (<?php echo htmlspecialchars($_SESSION['email']); ?>) — <a href="logout.php" class="cerrarsesion">Cerrar sesión</a></p>
             <h2>Bienvenid@ Artista!</h2>
-            
+
             <p>Aqui podras encontrar tus talleres.</p>
+
+            <?php if (empty($misTalleres)): ?>
+                <p>Todavía no estás inscripto en ningún taller. <a href="index.php#inscribirse">Inscribite acá</a>.</p>
+            <?php else: ?>
+                <h3>Tus talleres</h3>
+                <ul class="lista-talleres">
+                    <?php foreach ($misTalleres as $t): ?>
+                        <li>
+                            <strong><?php echo htmlspecialchars($t['nombre_taller']); ?></strong>
+                            — Horario: <?php echo htmlspecialchars(substr($t['horario'], 0, 5)); ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
         </section>
     </main>
     <?php
