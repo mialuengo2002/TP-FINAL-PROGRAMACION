@@ -237,7 +237,7 @@ h1 {
     transform: scale(1.8);
 }
 
-.btn-login {
+.BOTONLOGIN {
     background-color: #dc3545;
     color: white;
     border: none;
@@ -246,7 +246,7 @@ h1 {
     transition: 0.3s;
 }
 
-.btn-login:hover {
+.BOTONLOGIN:hover {
     background-color: #a71d2a;
     color: white;
     transform: scale(1.05);

@@ -397,7 +397,7 @@ $sql = "SELECT t.nombre_taller, t.horario
                     <?php endif; ?>
 
                     <div class="d-flex justify-content-center">
-                        <a href="ingreso.php" class="btn btn-login">
+                        <a href="ingreso.php" class="btn BOTONLOGIN">
                             Iniciar sesión para inscribirte
                         </a>
                     </div>
