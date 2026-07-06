@@ -85,32 +85,45 @@ $conn->close();
 
 <h3>Talleres disponibles</h3>
 
+<?php
+$idsInscriptos = array_column($misTalleres, 'id_taller');
+?>
+
 <div class="row">
 <?php foreach ($talleres as $taller): ?>
+
     <div class="col-md-4 mb-3">
         <div class="card p-3">
 
             <h5><?= htmlspecialchars($taller['nombre_taller']) ?></h5>
 
             <p>
-                Horario:
-                <?= htmlspecialchars(substr($taller['horario'],0,5)) ?>
+                Horario: <?= htmlspecialchars(substr($taller['horario'],0,5)) ?>
             </p>
 
-            <form action="inscribir.php" method="POST">
-                <input type="hidden" name="taller" value="<?= $taller['id_taller'] ?>">
-
-                <button class="btn btn-primary">
-                    Inscribirme
+            <?php if (in_array($taller['id_taller'], $idsInscriptos)): ?>
+                
+                <button class="btn btn-success" disabled>
+                    Inscripto
                 </button>
-            </form>
+
+            <?php else: ?>
+
+                <form action="inscribir.php" method="POST">
+                    <input type="hidden" name="taller" value="<?= $taller['id_taller'] ?>">
+
+                    <button class="btn btn-primary">
+                        Inscribirme
+                    </button>
+                </form>
+
+            <?php endif; ?>
 
         </div>
     </div>
+
 <?php endforeach; ?>
 </div>
-
-
     </main>
     <?php
         include 'footer.php';
