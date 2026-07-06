@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $password = $_POST['password'];
 
         // Consulta para verificar si el usuario existe en la base de datos
-        $sql = "SELECT * FROM alumno WHERE email = ?";
+        $sql = "SELECT * FROM usuarios WHERE email = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("s", $email);
         $stmt->execute();
@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn->close();
 
         if ($usuario && password_verify($password, $usuario['password'])) {
-           $_SESSION['id_usuario'] = $usuario['id_ALUMNO'];
-$_SESSION['username'] = $usuario['username'];
-$_SESSION['email'] = $usuario['email'];
+            $_SESSION['id_usuario'] = $usuario['id_usuario'];
+            $_SESSION['username'] = $usuario['username'];
+            $_SESSION['email'] = $usuario['email'];
 
             header("Location: home.php");
             exit;
