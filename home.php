@@ -73,9 +73,16 @@ $conn->close();
                 <ul class="lista-talleres">
                     <?php foreach ($misTalleres as $t): ?>
                         <li>
-                            <strong><?php echo htmlspecialchars($t['nombre_taller']); ?></strong>
-                            — Horario: <?php echo htmlspecialchars(substr($t['horario'], 0, 5)); ?>
-                        </li>
+    <strong><?php echo htmlspecialchars($t['nombre_taller']); ?></strong>
+    — Horario: <?php echo htmlspecialchars(substr($t['horario'], 0, 5)); ?>
+
+    <form action="eliminar_inscripcion.php" method="POST" style="display:inline;">
+        <input type="hidden" name="taller" value="<?php echo $t['id_taller']; ?>">
+        <button type="submit" class="btn btn-danger btn-sm ms-2">
+            Cancelar inscripción
+        </button>
+    </form>
+</li>
                     <?php endforeach; ?>
                 </ul>
             <?php endif; ?>
