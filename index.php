@@ -11,6 +11,7 @@ $sql = "SELECT t.nombre_taller, t.horario
         JOIN taller t ON t.id_taller = i.idTaller
         WHERE i.idAlumno = ?
         ORDER BY i.fechaInscripcion DESC";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

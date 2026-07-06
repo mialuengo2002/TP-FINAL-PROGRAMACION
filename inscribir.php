@@ -12,10 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['taller'])) {
     $idTaller = (int) $_POST['taller'];
     $idUsuario = (int) $_SESSION['id_usuario'];
 
-    $sql = "INSERT INTO inscripcion (fechaInscripcion, idTaller, idUsuario) VALUES (NOW(), ?, ?)";
+    $sql = "INSERT INTO inscripcion (id_usuario, id_taller) VALUES (?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ii", $idTaller, $idUsuario);
+    $stmt->bind_param("ii", $idUsuario, $idTaller);
     $stmt->execute();
+
     $stmt->close();
     $conn->close();
 
