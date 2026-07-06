@@ -101,18 +101,19 @@ INSERT INTO `gustar` (`id_gustar`, `id_alumno`, `id_instrumento`) VALUES
 CREATE TABLE `inscripcion` (
   `id_inscripcion` bigint(20) UNSIGNED NOT NULL,
   `fechaInscripcion` datetime NOT NULL,
-  `idAlumno` bigint(20) UNSIGNED NOT NULL,
-  `idTaller` bigint(20) UNSIGNED NOT NULL
+  `idAlumno` bigint(20) UNSIGNED DEFAULT NULL,
+  `idTaller` bigint(20) UNSIGNED NOT NULL,
+  `idUsuario` bigint(20) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `inscripcion`
 --
 
-INSERT INTO `inscripcion` (`id_inscripcion`, `fechaInscripcion`, `idAlumno`, `idTaller`) VALUES
-(1, '2026-06-23 21:00:00', 1, 2),
-(2, '2026-06-17 18:00:15', 3, 3),
-(3, '2024-02-01 15:32:53', 2, 3);
+INSERT INTO `inscripcion` (`id_inscripcion`, `fechaInscripcion`, `idAlumno`, `idTaller`, `idUsuario`) VALUES
+(1, '2026-06-23 21:00:00', 1, 2, NULL),
+(2, '2026-06-17 18:00:15', 3, 3, NULL),
+(3, '2024-02-01 15:32:53', 2, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -200,7 +201,8 @@ CREATE TABLE `taller` (
 INSERT INTO `taller` (`id_taller`, `nombre_taller`, `id_profesor`, `horario`) VALUES
 (1, 'Piano', 3, '10:00:00'),
 (2, 'Batería ', 2, '18:00:00'),
-(3, 'canto', 1, '17:00:00');
+(3, 'canto', 1, '17:00:00'),
+(4, 'Guitarra', 1, '19:00:00');
 
 -- --------------------------------------------------------
 
@@ -268,7 +270,8 @@ ALTER TABLE `gustar`
 ALTER TABLE `inscripcion`
   ADD PRIMARY KEY (`id_inscripcion`),
   ADD KEY `inscripcion_idtaller_foreign` (`idTaller`),
-  ADD KEY `inscripcion_idalumno_foreign` (`idAlumno`);
+  ADD KEY `inscripcion_idalumno_foreign` (`idAlumno`),
+  ADD KEY `inscripcion_idusuario_foreign` (`idUsuario`);
 
 --
 -- Indices de la tabla `instrumento`
@@ -356,7 +359,7 @@ ALTER TABLE `profesor`
 -- AUTO_INCREMENT de la tabla `taller`
 --
 ALTER TABLE `taller`
-  MODIFY `id_taller` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_taller` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `taller_presentacion`
@@ -386,7 +389,8 @@ ALTER TABLE `gustar`
 --
 ALTER TABLE `inscripcion`
   ADD CONSTRAINT `inscripcion_idalumno_foreign` FOREIGN KEY (`idAlumno`) REFERENCES `alumno` (`id_ALUMNO`),
-  ADD CONSTRAINT `inscripcion_idtaller_foreign` FOREIGN KEY (`idTaller`) REFERENCES `taller` (`id_taller`);
+  ADD CONSTRAINT `inscripcion_idtaller_foreign` FOREIGN KEY (`idTaller`) REFERENCES `taller` (`id_taller`),
+  ADD CONSTRAINT `inscripcion_idusuario_foreign` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
 -- Filtros para la tabla `taller`
