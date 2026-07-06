@@ -396,61 +396,9 @@ $sql = "SELECT t.nombre_taller, t.horario
                         </div>
                     <?php endif; ?>
 
-                    <form action="inscribir.php" method="POST">
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="nombre" class="form-label">Nombre y Apellido</label>
-                                <input type="text" class="form-control" id="nombre" required>
-                            </div>
-
-                            <div class="col-md-6 mb-3">
-                                <label for="edad" class="form-label">Edad</label>
-                                <input type="number" class="form-control" id="edad" required>
-                            </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Correo Electrónico</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" id="telefono">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="taller" class="form-label">Taller</label>
-                            <select class="form-select" id="taller" name="taller" required>
-                                <option selected disabled value="">Seleccioná un taller</option>
-                                <option value="2">Batería</option>
-                                <option value="3">Canto</option>
-                                <option value="4">Guitarra</option>
-                                <option value="1">Piano</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="horario" class="form-label">Horario Preferido</label>
-                            <select class="form-select" id="horario">
-                                <option>Lunes y Miércoles 18:00 - 19:30</option>
-                                <option>Martes y Jueves 17:00 - 18:30</option>
-                                <option>Lunes y Viernes 19:00 - 20:30</option>
-                                <option>Sábados 10:00 - 12:00</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="comentarios" class="form-label">Comentarios</label>
-                            <textarea class="form-control" id="comentarios" rows="4"></textarea>
-                        </div>
-
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-enviar">
-                                Enviar Inscripción
-                            </button>
-                        </div>
-                    </form>
+                    <a href="ingreso.php" class="btn btn-primary">
+    Iniciar sesión para inscribirte
+</a>
                 </section>
             </div>
     </main>
